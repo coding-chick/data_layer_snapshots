@@ -1,4 +1,10 @@
-   /**
+class FolderSetRepository @Inject constructor(
+    private val factory: FolderSetDataStoreFactory,
+    private val networkStatus: INetworkConnectivityManager,
+    @Named(FOLDER_SET_REPOSITORY_LOGGER) private val logger: Logger
+) : IFolderSetRepository {
+
+/**
      * This will default to fetching from network.
      *
      * If network is offline/network request failed, get from local.
